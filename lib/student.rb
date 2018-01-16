@@ -65,7 +65,9 @@ class Student
 
   def self.students_below_12th_grade
     below_query = <<-SQL
-    SELECT * FROM stuends WHERE grade < 12
+    SELECT * FROM students WHERE grade < 12
     SQL
+
+    DB[:conn].execute(below_query).map { |row| new_from_db(row) }
   end
 end
