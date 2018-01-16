@@ -89,6 +89,6 @@ class Student
     first_query = <<-SQL
     SELECT * FROM students WHERE grade = (?)
     SQL
-    DB[:conn].execute(first_query).map { |row| new_from_db(row) }.first
+    DB[:conn].execute(first_query, num).map { |row| new_from_db(row) }
   end
 end
