@@ -19,8 +19,10 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     find_query = <<-SQL
-    SELECT * FROM students WHERE students.name = (?)
+    SELECT * FROM students
+    WHERE students.name = (?)
     SQL
+    DB[:conn].execute(find_query, name)
   end
 
   def save
