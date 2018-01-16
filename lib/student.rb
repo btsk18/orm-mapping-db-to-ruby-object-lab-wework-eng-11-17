@@ -22,7 +22,8 @@ class Student
     SELECT * FROM students
     WHERE students.name = (?)
     SQL
-    DB[:conn].execute(find_query, name)
+    row = DB[:conn].execute(find_query, name).first
+    new_from_db(row)
   end
 
   def save
