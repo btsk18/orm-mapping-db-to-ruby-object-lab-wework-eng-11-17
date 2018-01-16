@@ -62,4 +62,7 @@ class Student
     SQL
     DB[:conn].execute(count_query)[0]
   end
+
+  def self.students_below_12th_grade
+  end
 end
