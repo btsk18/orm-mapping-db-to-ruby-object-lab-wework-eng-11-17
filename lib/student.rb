@@ -75,6 +75,6 @@ class Student
     first_query = <<-SQL
     SELECT * FROM students WHERE grade = 10 LIMIT (?)
     SQL
-    DB[:conn].execute(first_query).map { |row| new_from_db(row) }
+    DB[:conn].execute(first_query, num).map { |row| new_from_db(row) }
   end
 end
